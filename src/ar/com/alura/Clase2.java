@@ -3,9 +3,9 @@ package ar.com.alura;
 
 import java.util.ArrayList;
 
-public class Clase1 {
+public class Clase2 {
 
-     public static void main(String[] args) {
+    public static void main(String[] args) {
 
         //Creeo 4 variables de tipo String
         String variable1 = "Ejemplo 1";
@@ -24,6 +24,22 @@ public class Clase1 {
 
         //Muestro los elementos del ArrayList
         System.out.println(listaString);
+
+        //Metodo de Ordenamiento con for normal
+        for(int i = 0; i < listaString.size(); i++) {
+            System.out.println(listaString.get(i));
+        }
+
+        //Metodo de Ordenamiento con for each
+        for (String clase : listaString ) {
+            System.out.println(clase);
+        }
+
+        //Metodo de Ordenamiento con for each usando función lambda
+        listaString.forEach(clase -> {
+            System.out.println(clase);
+        });
+
 
     }
 }
