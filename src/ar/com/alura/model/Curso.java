@@ -1,4 +1,3 @@
-
 package ar.com.alura.model;
 
 import java.util.*;
@@ -9,13 +8,15 @@ public class Curso {
     private String nombre;
     private int tiempo;
     private List<Aula> aulaList = new ArrayList<>();
-    
+    private Collection<Alumno> alumnos = new HashSet<>(); //agrego una coleccion de hashset
+    //private Collection<Alumno> alumnos = new LinkedHashSet<>();
+
     //creo el constructor con sus parametros
     public Curso(String nombre, int tiempo) {
         this.nombre = nombre;
         this.tiempo = tiempo;
     }
-    
+
     public Curso(String nombre, int tiempo, List<Aula> aulaList) {
         this.nombre = nombre;
         this.tiempo = tiempo;
@@ -46,15 +47,35 @@ public class Curso {
     public void setAulaList(List<Aula> aulaList) {
         this.aulaList = aulaList;
     }
-    
-    public void addAula(Aula aula){ //para modificarla tenemos que utilizar este metodo
+
+    public Collection<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void addAula(Aula aula) { //para modificarla tenemos que utilizar este metodo
         this.aulaList.add(aula);
     }
 
+    /**
+     * permite agregar cada alumno a la lista
+     * @param alumno 
+     */
+    public void addAlumno(Alumno alumno) {
+        this.alumnos.add(alumno);
+    }
+
+    /**
+     * verifica si el alumno recibido por parametro se encuentra en la lista de alumnos
+     * @param alumno
+     * @return boolean
+     */
+    public boolean verificaAlumno(Alumno alumno) {
+        return this.alumnos.contains(alumno);
+    } 
 
     //modifico el metodo toStrong de su clase padre
     @Override
-    public String toString(){
+    public String toString() {
         return this.nombre;
     }
 
