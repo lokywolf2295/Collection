@@ -10,6 +10,8 @@ public class Curso {
     private List<Aula> aulaList = new ArrayList<>();
     private Collection<Alumno> alumnos = new HashSet<>(); //agrego una coleccion de hashset
     //private Collection<Alumno> alumnos = new LinkedHashSet<>();
+    private Map<String, Alumno> alumnoMap = new HashMap<>(); //ordena los objetos agregados por el metodo put a su conveniencia
+    private Map<String, Alumno> alumnoLinkedMap = new LinkedHashMap<>(); //ordena los objetos agregados por el metodo put en orden
 
     //creo el constructor con sus parametros
     public Curso(String nombre, int tiempo) {
@@ -51,6 +53,10 @@ public class Curso {
     public Collection<Alumno> getAlumnos() {
         return alumnos;
     }
+    
+     public Map<String, Alumno> getAlumnoMap() {
+        return alumnoMap;
+    }
 
     public void addAula(Aula aula) { //para modificarla tenemos que utilizar este metodo
         this.aulaList.add(aula);
@@ -62,6 +68,7 @@ public class Curso {
      */
     public void addAlumno(Alumno alumno) {
         this.alumnos.add(alumno);
+        this.alumnoMap.put(alumno.getCodigo() , alumno); //agrega al alumno mediante el metodo de hashMap llamado put
     }
 
     /**
